@@ -1,0 +1,15 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#input-form input[type='number'] {
+  transition: border-color 0.1s ease-in, transform 0.1s ease-in;
+
+}
+
+#input-form input[type='number']:hover {
+  border-color: #6f42c1;
+  transform: scale(1.1);
+}
