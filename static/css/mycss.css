@@ -13,3 +13,23 @@ input::-webkit-inner-spin-button {
   border-color: #6f42c1;
   transform: scale(1.1);
 }
+
+
+.sidebar {
+  width: 25%;
+  /*max-width: 200px;*/
+}
+
+.forms {
+  width: 65%;
+}
+
+#nine{
+  width: 60%;
+}
+#four{
+  width: 30%;
+}
+.content{
+  margin-bottom: 200px;
+}
