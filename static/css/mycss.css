@@ -33,3 +33,8 @@ input::-webkit-inner-spin-button {
 .content{
   margin-bottom: 200px;
 }
+
+.err-msg{
+  background: red;
+  padding: 10px;
+}
