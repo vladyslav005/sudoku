@@ -24,6 +24,10 @@ input::-webkit-inner-spin-button {
   width: 65%;
 }
 
+#error-output {
+  height: 148px;
+}
+
 #nine{
   width: 60%;
 }
@@ -32,7 +36,9 @@ input::-webkit-inner-spin-button {
 }
 .content{
   margin-bottom: 200px;
+  min-height: 400px;
 }
+
 
 .err-msg{
   background: red;
