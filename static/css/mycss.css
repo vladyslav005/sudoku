@@ -4,6 +4,11 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+
+}
+
 #input-form input[type='number'] {
   transition: border-color 0.1s ease-in, transform 0.1s ease-in;
 
@@ -44,3 +49,5 @@ input::-webkit-inner-spin-button {
   background: red;
   padding: 10px;
 }
+
+

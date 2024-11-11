@@ -501,18 +501,23 @@
 
         // code to insert examples here
 
-        document.getElementById("9x9example-1").addEventListener("click",() => {
+
+
+        // Example 1
+        document.getElementById("9x9example-1").addEventListener("click", () => {
             pasteExampleTo9x9([
-            "1", "2", "3", "4", "5", "6", "7", "8", "9",
-            "2", "2", "3", "4", "5", "6", "7", "8", "9",
-            "3", "2", "3", "4", "5", "6", "7", "8", "9",
-            "4", "2", "3", "4", "5", "6", "7", "8", "9",
-            "5", "2", "3", "4", "5", "6", "7", "8", "9",
-            "6", "2", "3", "4", "5", "6", "7", "8", "9",
-            "7", "2", "3", "4", "5", "6", "7", "8", "9",
-            "8", "2", "3", "4", "5", "6", "7", "8", "9",
-            "9", "2", "3", "4", "5", "6", "7", "8", "9"
-        ])})
+            "", "3", "", "", "7", "", "", "", "",
+            "6", "", "", "1", "9", "5", "", "", "",
+            "", "9", "8", "", "", "", "", "6", "",
+            "8", "", "", "", "6", "", "", "", "3",
+            "4", "", "", "8", "", "3", "", "", "1",
+            "7", "", "", "", "2", "", "", "", "6",
+            "", "6", "", "", "", "", "2", "8", "",
+            "", "", "", "4", "1", "9", "", "", "5",
+            "", "", "", "", "8", "", "", "7", "9"
+            ]);
+        });
+
 
 
     </script>
@@ -689,6 +694,7 @@
         }
 
         function checkColumns(input) {
+            console.log(convertToMatrix(input))
             if (input.length === 81) {
                 let rows = convertToMatrix(input)
                 for (let j = 0; j < 9; j++) {
@@ -704,13 +710,12 @@
                         9: 0
                     }
 
-
                     for (let i = 0; i < 9; i++) {
                         let key = parseInt(rows[i][j]);
                         hash[key] += 1
                         if (hash[key] > 1) {
-                            setError("Invalid input! Col: " + (i + 1))
-                            throw new Error("Invalid input! Col: " + (i + 1));
+                            setError("Invalid input! Col: " + (j + 1))
+                            throw new Error("Invalid input! Col: " + (j + 1));
                         }
                     }
                 }
