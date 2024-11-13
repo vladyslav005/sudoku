@@ -1,6 +1,8 @@
 import time
 import copy
 
+from utils import convert_to_2d, print_board, convert_to_1d
+
 
 class DeepFirstSearch:
 
@@ -11,6 +13,7 @@ class DeepFirstSearch:
         self.count_of_steps = 0
 
         self.states = []
+        self.converted_states = []
 
         self.count_of_steps = 0
         self.tree_root = Node(copy.deepcopy(self.input), None, [])
@@ -49,13 +52,19 @@ class DeepFirstSearch:
         end_timestamp = time.time()
         self.duration = end_timestamp - start_timestamp
 
-        self.states = [[[str(item) for item in row] for row in layer] for layer in self.states]
+
+        self.convert_states()
 
         return self.is_solved
 
+    def convert_states(self):
+
+        for state in self.states:
+            self.converted_states.append(convert_to_1d(state))
+
+
 
     def dfs(self, node):
-        self.count_of_steps += 1
 
         if self.is_solved:
             return
@@ -94,6 +103,8 @@ class DeepFirstSearch:
 
         # print_board(node.state)
 
+        self.count_of_steps += 1
+
         self.states.append(copy.deepcopy(node.state))
 
         for child in node.children:
@@ -121,26 +132,10 @@ class Node:
         self.children = children
 
 
-def print_board(board):
-    for row in board:
-        print(" ".join(str(num) if num != 0 else '.' for num in row))
-    print("\n")
-
 if __name__ == "__main__":
-    sudoku_board = [
+    sudoku_board =  ['', '5', '3', '', '9', '2', '8', '', '7', '', '', '', '', '3', '6', '9', '', '', '', '9', '', '', '', '', '', '', '', '', '2', '4', '', '', '1', '3', '6', '', '', '', '3', '', '', '9', '', '1', '4', '', '5', '', '6', '4', '3', '8', '', '', '', '', '9', '4', '7', '8', '2', '', '6', '3', '', '', '', '9', '2', '4', '7', '', '4', '', '2', '3', '', '5', '9', '1', '']
 
-        [8, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 3, 6, 0, 0, 0, 0, 0],
-        [0, 7, 0, 0, 9, 0, 2, 0, 0],
-
-        [0, 5, 0, 0, 0, 7, 0, 0, 0],
-        [0, 0, 0, 0, 4, 5, 7, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0, 3, 0],
-
-        [0, 0, 1, 0, 0, 0, 0, 6, 8],
-        [0, 0, 8, 5, 0, 0, 0, 1, 0],
-        [0, 9, 0, 0, 0, 0, 4, 0, 0]
-    ]
+    sudoku_board = convert_to_2d(sudoku_board)
 
     algo = DeepFirstSearch(sudoku_board)
 
@@ -149,9 +144,8 @@ if __name__ == "__main__":
 
     print(f"\nCount of steps: {algo.count_of_steps}, {algo.is_solved}, {algo.duration}")
 
-    for i in algo.states:
-        print(i)
+    # for i in algo.states:
+    #     print_board(i)
 
     # print(f'Size {sys.getsizeof(algo.states)}')
 
-#444376
