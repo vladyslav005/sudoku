@@ -1,6 +1,10 @@
+from crypt import methods
+
 from flask import Flask, render_template, request, jsonify
 
+from backtracking import Backtracking
 from dfs import DeepFirstSearch
+from forward_controll import ForwardControl
 from utils import convert_to_2d
 
 app = Flask(__name__)
@@ -25,9 +29,16 @@ def calculate():
     }
 
     board = convert_to_2d(request_data['values'])
+    method = None
+    if request_data['method'] == "DFS":
+        method = DeepFirstSearch(board)
 
-    # if request_data['method'] == "DFS":
-    method = DeepFirstSearch(board)
+    elif request_data['method'] == "Backtracking":
+        method = Backtracking(board)
+
+    elif request_data['method'] == "Forward control":
+
+        method = ForwardControl(board)
     method.solve()
 
     response["states"] = method.converted_states

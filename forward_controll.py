@@ -4,7 +4,7 @@ import copy
 from utils import convert_to_2d, print_board, convert_to_1d
 
 
-class DeepFirstSearch:
+class ForwardControl:
 
     def __init__(self, input):
         self.is_solved = False
@@ -46,7 +46,7 @@ class DeepFirstSearch:
     def solve(self):
         start_timestamp = time.time()
         self.count_of_steps = 0
-        self.dfs(self.tree_root)
+        self.forward_control(self.tree_root)
 
         end_timestamp = time.time()
         self.duration = end_timestamp - start_timestamp
@@ -63,13 +63,12 @@ class DeepFirstSearch:
 
 
 
-    def dfs(self, node):
-        print(self.count_of_steps)
+    def forward_control(self, node):
+
         if self.is_solved:
             return
 
-        if self.is_sudoku_solved(node.state):
-            print("SOLVED")
+        if self.check_if_solved(node.state):
             self.states.append(copy.deepcopy(node.state))
             self.is_solved = True
             return
@@ -85,7 +84,7 @@ class DeepFirstSearch:
         for row in range(len(node.state)):
             for col in range(len(node.state)):
                 if node.state[row][col] == 0:
-                    valid_values["list_values"] = list(range(1, len(self.input) + 1)) # self.list_valid(node.state, row, col)
+                    valid_values["list_values"] = self.list_valid(node.state, row, col)
                     valid_values["row"] = row
                     valid_values["col"] = col
                     should_break = True
@@ -108,7 +107,7 @@ class DeepFirstSearch:
         self.states.append(copy.deepcopy(node.state))
 
         for child in node.children:
-            self.dfs(child)
+            self.forward_control(child)
 
     def list_valid(self, board, row, col):
         valid_values = []
@@ -125,34 +124,6 @@ class DeepFirstSearch:
                     return False
         return True
 
-    def is_sudoku_solved(slef, board):
-        n = len(board)
-        box_size =  3 if len(board) == 9 else 2
-
-        def is_valid_group(group):
-            return sorted(group) == list(range(1, n + 1))
-
-        for row in board:
-            if not is_valid_group(row):
-                return False
-
-        for col in range(n):
-            column = [board[row][col] for row in range(n)]
-            if not is_valid_group(column):
-                return False
-
-        for box_row in range(0, n, box_size):
-            for box_col in range(0, n, box_size):
-                box = []
-                for i in range(box_size):
-                    for j in range(box_size):
-                        box.append(board[box_row + i][box_col + j])
-                if not is_valid_group(box):
-                    return False
-
-        return True
-
-
 class Node:
     def __init__(self, state, parent, children):
         self.state = state
@@ -165,15 +136,15 @@ if __name__ == "__main__":
 
     sudoku_board = convert_to_2d(sudoku_board)
 
-
-    algo = DeepFirstSearch(sudoku_board)
+    algo = ForwardControl(sudoku_board)
 
     algo.solve()
 
-    for i in algo.states:
-        print_board(i)
 
     print(f"\nCount of steps: {algo.count_of_steps}, {algo.is_solved}, {algo.duration}")
+
+    # for i in algo.states:
+    #     print_board(i)
 
     # print(f'Size {sys.getsizeof(algo.states)}')
 

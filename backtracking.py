@@ -4,7 +4,7 @@ import copy
 from utils import convert_to_2d, print_board, convert_to_1d
 
 
-class DeepFirstSearch:
+class Backtracking:
 
     def __init__(self, input):
         self.is_solved = False
@@ -46,7 +46,7 @@ class DeepFirstSearch:
     def solve(self):
         start_timestamp = time.time()
         self.count_of_steps = 0
-        self.dfs(self.tree_root)
+        self.backtrack(self.tree_root)
 
         end_timestamp = time.time()
         self.duration = end_timestamp - start_timestamp
@@ -63,8 +63,9 @@ class DeepFirstSearch:
 
 
 
-    def dfs(self, node):
+    def backtrack(self, node):
         print(self.count_of_steps)
+
         if self.is_solved:
             return
 
@@ -73,6 +74,8 @@ class DeepFirstSearch:
             self.states.append(copy.deepcopy(node.state))
             self.is_solved = True
             return
+
+
 
         children = []
         valid_values = {
@@ -85,7 +88,7 @@ class DeepFirstSearch:
         for row in range(len(node.state)):
             for col in range(len(node.state)):
                 if node.state[row][col] == 0:
-                    valid_values["list_values"] = list(range(1, len(self.input) + 1)) # self.list_valid(node.state, row, col)
+                    valid_values["list_values"] = list(range(1, len(self.input) + 1))
                     valid_values["row"] = row
                     valid_values["col"] = col
                     should_break = True
@@ -102,19 +105,17 @@ class DeepFirstSearch:
         node.children = children
 
         # print_board(node.state)
-
         self.count_of_steps += 1
+
 
         self.states.append(copy.deepcopy(node.state))
 
-        for child in node.children:
-            self.dfs(child)
+        if not self.is_valid_sudoku_state(node.state):
+            return
 
-    def list_valid(self, board, row, col):
-        valid_values = []
-        for i in range(len(board) + 1):
-            if self.is_valid(board, row, col, i):
-                valid_values.append(i)
+        for child in node.children:
+            self.backtrack(child)
+
 
         return valid_values
 
@@ -127,7 +128,7 @@ class DeepFirstSearch:
 
     def is_sudoku_solved(slef, board):
         n = len(board)
-        box_size =  3 if len(board) == 9 else 2
+        box_size = 3 if len(board) == 9 else 2
 
         def is_valid_group(group):
             return sorted(group) == list(range(1, n + 1))
@@ -152,6 +153,40 @@ class DeepFirstSearch:
 
         return True
 
+    def is_valid_sudoku_state(slef, board):
+        n = len(board)
+        box_size = 3 if len(board) == 9 else 2
+
+        # Kontrola riadkov a stĺpcov
+        for i in range(n):
+            row_numbers = set()
+            col_numbers = set()
+            for j in range(n):
+                # Kontrola riadkov
+                if board[i][j] != 0:
+                    if board[i][j] in row_numbers:
+                        return False
+                    row_numbers.add(board[i][j])
+
+                # Kontrola stĺpcov
+                if board[j][i] != 0:
+                    if board[j][i] in col_numbers:
+                        return False
+                    col_numbers.add(board[j][i])
+
+        # Kontrola vnútorných boxov
+        for box_row in range(0, n, box_size):
+            for box_col in range(0, n, box_size):
+                box_numbers = set()
+                for i in range(box_size):
+                    for j in range(box_size):
+                        num = board[box_row + i][box_col + j]
+                        if num != 0:
+                            if num in box_numbers:
+                                return False
+                            box_numbers.add(num)
+
+        return True
 
 class Node:
     def __init__(self, state, parent, children):
@@ -166,9 +201,10 @@ if __name__ == "__main__":
     sudoku_board = convert_to_2d(sudoku_board)
 
 
-    algo = DeepFirstSearch(sudoku_board)
+    algo = Backtracking(sudoku_board)
 
     algo.solve()
+
 
     for i in algo.states:
         print_board(i)
