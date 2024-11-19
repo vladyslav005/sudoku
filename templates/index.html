@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
     <title>Sudoku</title>
 <body>
 
@@ -376,6 +379,12 @@
 
                     <div id="forward9x9" class="btn btn-primary mx-2 w-100"> > </div>
                     <div id="end9x9" class="btn btn-primary mx-2 w-100"> >> </div>
+
+
+
+                </div>
+                <div class="d-flex flex-row my-3 justify-content-between w-100">
+                    <div id="play-stop9x9" class="btn btn-primary mx-2 w-100 "> Play/Stop</div>
                 </div>
                 <button type="button" class="btn btn-primary w-100 submit">Submit</button>
 
@@ -456,8 +465,12 @@
 
                     <div id="forward4x4" class="btn btn-primary mx-1 w-100"> > </div>
                     <div id="end4x4" class="btn btn-primary mx-1 w-100"> >> </div>
-                </div>
 
+
+                </div>
+                <div class="d-flex flex-row my-3 justify-content-between w-100">
+                        <div id="play-stop4x4" class="btn btn-primary mx-2 w-100 "> Play/Stop</div>
+                    </div>
                 <button type="button" class="btn btn-primary submit w-100  my-1">Submit</button>
 
             </form>
@@ -512,6 +525,9 @@
                         <p class="my-1">Solved: <span id="solved"></span></p>
                         <p class="my-1">Count of steps: <span id="steps"></span></p>
                         <p class="my-1">Current step: <span id="current_step">0</span></p>
+                         <div data-mdb-input-init class="form-outline" style="width: 10rem;">
+                            <input min="10" max="20" type="number" id="delay" class="form-control" placeholder="Delay, ms" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -546,7 +562,7 @@
             e.preventDefault()
             if (DATA === undefined) return;
 
-            if (e.deltaY > 0) {
+            if (e.deltaY > 0) {play-stop9x9
                 if (STEP_IDX > 0)
                     STEP_IDX--;
                     pasteExampleTo9x9(DATA.states[STEP_IDX])
@@ -574,8 +590,6 @@
 
 
         document.getElementById("start9x9").addEventListener("click", () => {
-            console.log(DATA)
-            console.log(DATA.states[0])
             if (DATA === undefined) return;
             STEP_IDX = 0
             pasteExampleTo9x9(DATA.states[STEP_IDX])
@@ -597,17 +611,85 @@
 
         document.getElementById("end9x9").addEventListener("click", () => {
             if (DATA === undefined) return;
-            console.log(DATA.states[DATA.states.length - 1])
             STEP_IDX = DATA.states.length - 1
             pasteExampleTo9x9(DATA.states[STEP_IDX])
         })
 
 
+        IS_PLAY = false;
+        intervalId = undefined;
+
+        document.getElementById("play-stop9x9").addEventListener("click", () => {
+
+            if (DATA === undefined) return;
+            let value = parseInt(document.getElementById("delay").value)
+
+            let delay = 50
+
+            if (!isNaN(value) && value > 0){
+                delay = value
+            }
+            if (IS_PLAY) {
+                clearInterval(intervalId);
+                intervalId = undefined;
+                IS_PLAY = false;
+                return;
+            }
+
+
+            IS_PLAY = true;
+            intervalId = setInterval(() => {
+                if (STEP_IDX < DATA.states.length - 1) {
+                    STEP_IDX++;
+                } else {
+                    clearInterval(intervalId);
+                    intervalId = undefined;
+                    IS_PLAY = false;
+                }
+                pasteExampleTo9x9(DATA.states[STEP_IDX]);
+                document.getElementById("current_step").textContent = STEP_IDX;
+            }, delay);
+        });
+
+
+        document.getElementById("play-stop4x4").addEventListener("click", () => {
+
+            if (DATA === undefined) return;
+            let value = parseInt(document.getElementById("delay").value)
+
+            let delay = 50
+
+            if (!isNaN(value) && value > 0){
+                delay = value
+            }
+            if (IS_PLAY) {
+                clearInterval(intervalId);
+                intervalId = undefined;
+                IS_PLAY = false;
+                return;
+            }
+
+
+            IS_PLAY = true;
+            intervalId = setInterval(() => {
+                if (STEP_IDX < DATA.states.length - 1) {
+                    STEP_IDX++;
+                } else {
+                    clearInterval(intervalId);
+                    intervalId = undefined;
+                    IS_PLAY = false;
+                }
+                pasteExampleTo4x4(DATA.states[STEP_IDX]);
+                document.getElementById("current_step").textContent = STEP_IDX;
+            }, delay);
+        });
+
+
+
+
 
 
         document.getElementById("start4x4").addEventListener("click", () => {
-            console.log(DATA)
-            console.log(DATA.states[0])
             if (DATA === undefined) return;
             STEP_IDX = 0
             pasteExampleTo4x4(DATA.states[STEP_IDX])
@@ -629,7 +711,6 @@
 
         document.getElementById("end4x4").addEventListener("click", () => {
             if (DATA === undefined) return;
-            console.log(DATA.states[DATA.states.length - 1])
             STEP_IDX = DATA.states.length - 1
             pasteExampleTo4x4(DATA.states[STEP_IDX])
         })

@@ -86,6 +86,7 @@ class DeepFirstSearch:
             for col in range(len(node.state)):
                 if node.state[row][col] == 0:
                     valid_values["list_values"] = list(range(1, len(self.input) + 1)) # self.list_valid(node.state, row, col)
+                    print("valid_values" , valid_values["list_values"])
                     valid_values["row"] = row
                     valid_values["col"] = col
                     should_break = True
@@ -101,7 +102,7 @@ class DeepFirstSearch:
 
         node.children = children
 
-        # print_board(node.state)
+        print_board(node.state)
 
         self.count_of_steps += 1
 
