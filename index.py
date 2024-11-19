@@ -1,5 +1,3 @@
-from crypt import methods
-
 from flask import Flask, render_template, request, jsonify
 
 from backtracking import Backtracking
@@ -8,6 +6,7 @@ from forward_controll import ForwardControl
 from utils import convert_to_2d
 
 app = Flask(__name__)
+
 
 @app.route("/")
 def hello_world():
@@ -19,13 +18,12 @@ def calculate():
     print("Form Data:", request.form)
     print("JSON Data:", request.json)
 
-
     request_data = request.json
     response = {
-        "steps" : 0,
-        "time_elapsed" : 0,
-        "solvable" : 0,
-        "states" : []
+        "steps": 0,
+        "time_elapsed": 0,
+        "solvable": 0,
+        "states": []
     }
 
     board = convert_to_2d(request_data['values'])
@@ -45,6 +43,5 @@ def calculate():
     response["steps"] = method.count_of_steps
     response["time_elapsed"] = method.duration
     response["solvable"] = method.is_solved
-
 
     return jsonify(response)

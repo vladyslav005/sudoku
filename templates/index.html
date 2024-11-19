@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
     <link href="/static/css/mycss.css" rel="stylesheet">
     <script src="/static/js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script crossorigin="anonymous"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
     <title>Sudoku</title>
 <body>
 
 <div class="container">
 
-    <div class="container" bis_skin_checked="1">
+    <div bis_skin_checked="1" class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" href="/">
+                <svg class="bi me-2" height="32" width="40">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
                 <span class="fs-4">SUDOKU</span>
@@ -34,7 +38,7 @@
             <ul class="nav nav-pills ">
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link"
+                    <a class="nav-link" href="#"
                        onclick="{
                         if (document.getElementById('four').style.display === 'block') return
 
@@ -54,7 +58,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"
+                    <a class="nav-link" href="#"
                        onclick="{
                             if (document.getElementById('nine').style.display === 'block') return
                             document.getElementById('nine').style.display = 'block'
@@ -75,31 +79,31 @@
 
                 <li>
                     <div class="btn-group">
-                      <button type="button" class="btn btn-primary dropdown-toggle"
-                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Paste Example
-                      </button>
-                      <div class="dropdown-menu">
-                        <a id="9x9example-1" class="dropdown-item" href="#">9x9 1</a>
-                        <a id="9x9example-2" class="dropdown-item" href="#">9x9 2</a>
-                        <a id="9x9example-3" class="dropdown-item" href="#">9x9 3</a>
-                        <a id="9x9example-4"  class="dropdown-item" href="#">9x9 4</a>
-                        <a id="9x9example-5"  class="dropdown-item" href="#">9x9 5</a>
+                        <button aria-expanded="false" aria-haspopup="true"
+                                class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+                            Paste Example
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#" id="9x9example-1">9x9 1</a>
+                            <a class="dropdown-item" href="#" id="9x9example-2">9x9 2</a>
+                            <a class="dropdown-item" href="#" id="9x9example-3">9x9 3</a>
+                            <a class="dropdown-item" href="#" id="9x9example-4">9x9 4</a>
+                            <a class="dropdown-item" href="#" id="9x9example-5">9x9 5</a>
 
-                        <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider"></div>
 
-                        <a id="4x4example-1" class="dropdown-item" href="#">4x4 1</a>
-                        <a id="4x4example-2" class="dropdown-item" href="#">4x4 2</a>
-                        <a id="4x4example-3" class="dropdown-item" href="#">4x4 3</a>
-                        <a id="4x4example-4" class="dropdown-item" href="#">4x4 4</a>
-                        <a id="4x4example-5" class="dropdown-item" href="#">4x4 5</a>
+                            <a class="dropdown-item" href="#" id="4x4example-1">4x4 1</a>
+                            <a class="dropdown-item" href="#" id="4x4example-2">4x4 2</a>
+                            <a class="dropdown-item" href="#" id="4x4example-3">4x4 3</a>
+                            <a class="dropdown-item" href="#" id="4x4example-4">4x4 4</a>
+                            <a class="dropdown-item" href="#" id="4x4example-5">4x4 5</a>
 
-                      </div>
+                        </div>
                     </div>
                 </li>
 
-                 <li class="nav-item">
-                    <a href="#" class=" btn btn-secondary mx-2" aria-current="page"
+                <li class="nav-item">
+                    <a aria-current="page" class=" btn btn-secondary mx-2" href="#"
                        onclick="{
                               document.querySelectorAll('.input-form input[type=\'number\']')
                               .forEach((input) => {
@@ -122,86 +126,86 @@
     <div class="content d-flex flex-row">
 
         <div class="forms ">
-            <form id="nine" class="container input-form">
+            <form class="container input-form" id="nine">
                 <div class="d-flex flex-row">
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                    </div>
-
-                    <div class="border border-primary">
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                     </div>
 
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                    </div>
+
+                    <div class="border border-primary">
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                     </div>
 
@@ -209,82 +213,82 @@
                 <div class="d-flex flex-row">
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                    </div>
-
-                    <div class="border border-primary">
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                     </div>
 
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                    </div>
+
+                    <div class="border border-primary">
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                     </div>
 
@@ -292,135 +296,134 @@
                 <div class="d-flex flex-row">
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                    </div>
-
-                    <div class="border border-primary">
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                        </div>
-                        <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                     </div>
 
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                    </div>
+
+                    <div class="border border-primary">
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                     </div>
 
                 </div>
 
-                <div id="control9x9" class="d-flex flex-row my-3 justify-content-between w-100">
-                    <div id="start9x9" class=" btn btn-primary mx-2 w-100"> << </div>
-                    <div id="backward9x9" class="btn btn-primary mx-2 w-100"> < </div>
+                <div class="d-flex flex-row my-3 justify-content-between w-100" id="control9x9">
+                    <div class=" btn btn-primary mx-2 w-100" id="start9x9"> <<</div>
+                    <div class="btn btn-primary mx-2 w-100" id="backward9x9"> <</div>
 
-                    <div id="forward9x9" class="btn btn-primary mx-2 w-100"> > </div>
-                    <div id="end9x9" class="btn btn-primary mx-2 w-100"> >> </div>
-
+                    <div class="btn btn-primary mx-2 w-100" id="forward9x9"> ></div>
+                    <div class="btn btn-primary mx-2 w-100" id="end9x9"> >></div>
 
 
                 </div>
                 <div class="d-flex flex-row my-3 justify-content-between w-100">
-                    <div id="play-stop9x9" class="btn btn-primary mx-2 w-100 "> Play/Stop</div>
+                    <div class="btn btn-primary mx-2 w-100 " id="play-stop9x9"> Play/Stop</div>
                 </div>
-                <button type="button" class="btn btn-primary w-100 submit">Submit</button>
+                <button class="btn btn-primary w-100 submit" type="button">Submit</button>
 
 
             </form>
 
-            <form id="four" class="input-form container">
+            <form class="input-form container" id="four">
                 <div class="d-flex flex-row">
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
 
                     </div>
 
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
 
                     </div>
@@ -429,49 +432,49 @@
                 <div class="d-flex flex-row">
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
 
                     </div>
 
                     <div class="border border-primary">
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                         <div class="d-flex flex-row">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
-                            <input class="form-control m-1" type="number" placeholder=""
-                                   aria-label="default input example">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
+                            <input aria-label="default input example" class="form-control m-1" placeholder=""
+                                   type="number">
                         </div>
                     </div>
                 </div>
 
-                <div id="control4x4" class="d-flex flex-row my-3 justify-content-between w-100">
-                    <div id="start4x4" class=" btn btn-primary mx-1 w-100"> << </div>
-                    <div id="backward4x4" class="btn btn-primary mx-1 w-100"> < </div>
+                <div class="d-flex flex-row my-3 justify-content-between w-100" id="control4x4">
+                    <div class=" btn btn-primary mx-1 w-100" id="start4x4"> <<</div>
+                    <div class="btn btn-primary mx-1 w-100" id="backward4x4"> <</div>
 
-                    <div id="forward4x4" class="btn btn-primary mx-1 w-100"> > </div>
-                    <div id="end4x4" class="btn btn-primary mx-1 w-100"> >> </div>
+                    <div class="btn btn-primary mx-1 w-100" id="forward4x4"> ></div>
+                    <div class="btn btn-primary mx-1 w-100" id="end4x4"> >></div>
 
 
                 </div>
                 <div class="d-flex flex-row my-3 justify-content-between w-100">
-                        <div id="play-stop4x4" class="btn btn-primary mx-2 w-100 "> Play/Stop</div>
-                    </div>
-                <button type="button" class="btn btn-primary submit w-100  my-1">Submit</button>
+                    <div class="btn btn-primary mx-2 w-100 " id="play-stop4x4"> Play/Stop</div>
+                </div>
+                <button class="btn btn-primary submit w-100  my-1" type="button">Submit</button>
 
             </form>
 
@@ -481,8 +484,8 @@
 
             <div class="card err-card">
 
-                <div id="error-output" class="card-body text-center">
-                <h1 class="card-title">Errors</h1>
+                <div class="card-body text-center" id="error-output">
+                    <h1 class="card-title">Errors</h1>
 
                     <!--                    <p id="err-msg"> Error message</p>-->
                 </div>
@@ -490,27 +493,28 @@
 
 
             <div class="card">
-                <div id="method-choosing" class="card-body text-center">
+                <div class="card-body text-center" id="method-choosing">
                     <h3 class="card-title">Choose method</h3>
 
                     <div class="card-body">
                         <div class="form-check text-start">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                            <input class="form-check-input" id="flexRadioDefault2" name="flexRadioDefault" type="radio">
                             <label class="form-check-label" for="flexRadioDefault2">
-                            DFS
-                          </label>
+                                DFS
+                            </label>
                         </div>
                         <div class="form-check text-start">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                            <input checked class="form-check-input" id="flexRadioDefault1" name="flexRadioDefault"
+                                   type="radio">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Backtracking
                             </label>
                         </div>
                         <div class="form-check text-start">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
-                          <label class="form-check-label" for="flexRadioDefault3">
-                            Forward control
-                          </label>
+                            <input class="form-check-input" id="flexRadioDefault3" name="flexRadioDefault" type="radio">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                Forward control
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -525,8 +529,9 @@
                         <p class="my-1">Solved: <span id="solved"></span></p>
                         <p class="my-1">Count of steps: <span id="steps"></span></p>
                         <p class="my-1">Current step: <span id="current_step">0</span></p>
-                         <div data-mdb-input-init class="form-outline" style="width: 10rem;">
-                            <input min="10" max="20" type="number" id="delay" class="form-control" placeholder="Delay, ms" />
+                        <div class="form-outline" data-mdb-input-init style="width: 10rem;">
+                            <input class="form-control" id="delay" max="20" min="10" placeholder="Delay, ms"
+                                   type="number"/>
                         </div>
                     </div>
                 </div>
@@ -539,22 +544,22 @@
 
 <footer>
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">TUKE ></a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FEI ></a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">KPI ></a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">ISI ></a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">SUDOKU</a></li>
+        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">TUKE ></a></li>
+        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">FEI ></a></li>
+        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">KPI ></a></li>
+        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">ISI ></a></li>
+        <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">SUDOKU</a></li>
     </ul>
     <p class="text-center text-muted">© 2024 Company, Inc</p>
 
     <script>
         STEP_IDX = 0
 
-        window.addEventListener("click", () =>{
+        window.addEventListener("click", () => {
             document.getElementById("current_step").textContent = STEP_IDX
         })
 
-        window.addEventListener("wheel", () =>{
+        window.addEventListener("wheel", () => {
             document.getElementById("current_step").textContent = STEP_IDX
         })
 
@@ -562,14 +567,15 @@
             e.preventDefault()
             if (DATA === undefined) return;
 
-            if (e.deltaY > 0) {play-stop9x9
+            if (e.deltaY > 0) {
+                play - stop9x9
                 if (STEP_IDX > 0)
                     STEP_IDX--;
-                    pasteExampleTo9x9(DATA.states[STEP_IDX])
+                pasteExampleTo9x9(DATA.states[STEP_IDX])
             } else if (e.deltaY < 0) {
                 if (STEP_IDX < DATA.states.length - 1)
                     STEP_IDX++;
-                    pasteExampleTo9x9(DATA.states[STEP_IDX])
+                pasteExampleTo9x9(DATA.states[STEP_IDX])
             }
         })
 
@@ -580,11 +586,11 @@
             if (e.deltaY > 0) {
                 if (STEP_IDX > 0)
                     STEP_IDX--;
-                    pasteExampleTo4x4(DATA.states[STEP_IDX])
+                pasteExampleTo4x4(DATA.states[STEP_IDX])
             } else if (e.deltaY < 0) {
                 if (STEP_IDX < DATA.states.length - 1)
                     STEP_IDX++;
-                    pasteExampleTo4x4(DATA.states[STEP_IDX])
+                pasteExampleTo4x4(DATA.states[STEP_IDX])
             }
         })
 
@@ -626,7 +632,7 @@
 
             let delay = 50
 
-            if (!isNaN(value) && value > 0){
+            if (!isNaN(value) && value > 0) {
                 delay = value
             }
             if (IS_PLAY) {
@@ -659,7 +665,7 @@
 
             let delay = 50
 
-            if (!isNaN(value) && value > 0){
+            if (!isNaN(value) && value > 0) {
                 delay = value
             }
             if (IS_PLAY) {
@@ -683,10 +689,6 @@
                 document.getElementById("current_step").textContent = STEP_IDX;
             }, delay);
         });
-
-
-
-
 
 
         document.getElementById("start4x4").addEventListener("click", () => {
@@ -721,7 +723,7 @@
 
         DATA = undefined
 
-        function pasteExampleTo9x9( valuesArray ) {
+        function pasteExampleTo9x9(valuesArray) {
             let formInputs = document.querySelectorAll("#nine input[type='number']");
             for (let i = 0; i < 81; i++) {
                 let input = formInputs[i];
@@ -729,7 +731,7 @@
             }
         }
 
-        function pasteExampleTo4x4( valuesArray ) {
+        function pasteExampleTo4x4(valuesArray) {
             let formInputs = document.querySelectorAll("#four input[type='number']");
             for (let i = 0; i < 16; i++) {
                 let input = formInputs[i];
@@ -741,15 +743,15 @@
         // Example 1
         document.getElementById("9x9example-1").addEventListener("click", () => {
             pasteExampleTo9x9([
-            "", "5", "3", "", "9", "2", "8", "", "7",
-            "", "", "", "", "3", "6", "9", "", "",
-            "", "9", "", "", "", "", "", "", "",
-            "", "2", "4", "", "", "1", "3", "6", "",
-            "", "", "3", "", "", "9", "", "1", "4",
-            "", "5", "", "6", "4", "3", "8", "", "",
-            "", "", "9", "4", "7", "8", "2", "", "6",
-            "3", "", "", "","9", "2", "4", "7","",
-            "4", "", "2", "3", "", "5", "9", "1", ""
+                "", "5", "3", "", "9", "2", "8", "", "7",
+                "", "", "", "", "3", "6", "9", "", "",
+                "", "9", "", "", "", "", "", "", "",
+                "", "2", "4", "", "", "1", "3", "6", "",
+                "", "", "3", "", "", "9", "", "1", "4",
+                "", "5", "", "6", "4", "3", "8", "", "",
+                "", "", "9", "4", "7", "8", "2", "", "6",
+                "3", "", "", "", "9", "2", "4", "7", "",
+                "4", "", "2", "3", "", "5", "9", "1", ""
             ]);
         });
         document.getElementById("9x9example-2").addEventListener("click", () => {
@@ -804,48 +806,47 @@
                 "", "", "9", "", "7", "", "8", "5", "",
 
 
-
             ]);
         });
 
-        document.getElementById("4x4example-1").addEventListener("click", ()=> {
+        document.getElementById("4x4example-1").addEventListener("click", () => {
             pasteExampleTo4x4([
-                "","3","4","",
-                "4","","","2",
-                "1","","","2",
-                "","3","1","",
+                "", "3", "4", "",
+                "4", "", "", "2",
+                "1", "", "", "2",
+                "", "3", "1", "",
             ]);
         });
-        document.getElementById("4x4example-2").addEventListener("click", ()=> {
+        document.getElementById("4x4example-2").addEventListener("click", () => {
             pasteExampleTo4x4([
-                "","","4","",
-                "4","","3","",
-                "","4","","1",
-                "","","","3",
+                "", "", "4", "",
+                "4", "", "3", "",
+                "", "4", "", "1",
+                "", "", "", "3",
             ]);
         });
-        document.getElementById("4x4example-3").addEventListener("click", ()=> {
+        document.getElementById("4x4example-3").addEventListener("click", () => {
             pasteExampleTo4x4([
-                "","","4","",
-                "1","","","",
-                "","","3","",
-                "","2","","",
+                "", "", "4", "",
+                "1", "", "", "",
+                "", "", "3", "",
+                "", "2", "", "",
             ]);
         });
-        document.getElementById("4x4example-4").addEventListener("click", ()=> {
+        document.getElementById("4x4example-4").addEventListener("click", () => {
             pasteExampleTo4x4([
-                "2","","","",
-                "","","3","",
-                "","4","","",
-                "","","","1",
+                "2", "", "", "",
+                "", "", "3", "",
+                "", "4", "", "",
+                "", "", "", "1",
             ]);
         });
-        document.getElementById("4x4example-5").addEventListener("click", ()=> {
+        document.getElementById("4x4example-5").addEventListener("click", () => {
             pasteExampleTo4x4([
-                "1","","","",
-                "4","","","",
-                "","","","1",
-                "","","","2",
+                "1", "", "", "",
+                "4", "", "", "",
+                "", "", "", "1",
+                "", "", "", "2",
             ]);
         });
 
@@ -937,7 +938,7 @@
 
 
         function convertToMatrix(input) {
-            if(input.length === 81) {
+            if (input.length === 81) {
                 let arr = [0, 3, 6, 27, 30, 33, 54, 57, 60]
 
                 let rows = new Array(9);
@@ -952,7 +953,7 @@
                 }
                 return rows;
             } else {
-                let arr = [0, 2, 8,10]
+                let arr = [0, 2, 8, 10]
 
                 let rows = new Array(4);
                 for (let i = 0; i < rows.length; i++) {
@@ -961,7 +962,7 @@
 
                 let index = 0;
                 for (let i = 0; i < arr.length; i++) {
-                    rows[index] = [input[arr[i]], input[arr[i] + 1], input[arr[i] + 4],input[arr[i] + 5]]
+                    rows[index] = [input[arr[i]], input[arr[i] + 1], input[arr[i] + 4], input[arr[i] + 5]]
                     index += 1
                 }
                 return rows;

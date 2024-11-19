@@ -1,16 +1,16 @@
-
 def print_board(board):
     for row in board:
         print(" ".join(str(num) if (num != 0) else '.' for num in row))
     print("\n")
 
-def convert_to_2d(input_board : []):
+
+def convert_to_2d(input_board: []):
     intervals = None
     output_board = None
     subgrid_matrix = []
     if len(input_board) == 81:
-        output_board = [[],[],[] ,[],[],[], [],[],[]]
-        intervals =[
+        output_board = [[], [], [], [], [], [], [], [], []]
+        intervals = [
             (0, 9), (9, 18), (18, 27),
             (27, 36), (36, 45), (45, 54),
             (54, 63), (63, 72), (72, 81)
@@ -68,7 +68,7 @@ def convert_to_2d(input_board : []):
     return output_board
 
 
-def convert_to_1d(input_board : []):
+def convert_to_1d(input_board: []):
     subgrid_matrix = None
 
     if len(input_board) == 9:
@@ -124,23 +124,17 @@ def convert_to_1d(input_board : []):
 
 if __name__ == "__main__":
     input_board = [
-            "", "5", "3", "", "9", "2", "8", "", "7",
-            "", "", "", "", "3", "6", "9", "", "",
-            "", "9", "", "", "", "", "", "", "",
-            "", "2", "4", "", "", "1", "3", "6", "",
-            "", "", "3", "", "", "9", "", "1", "4",
-            "", "5", "", "6", "4", "3", "8", "", "",
-            "", "", "9", "4", "7", "8", "2", "", "6",
-            "3", "", "", "", "9", "2", "4", "7", "",
-            "4", "", "2", "3", "", "5", "9", "1", ""
+        "", "5", "3", "", "9", "2", "8", "", "7",
+        "", "", "", "", "3", "6", "9", "", "",
+        "", "9", "", "", "", "", "", "", "",
+        "", "2", "4", "", "", "1", "3", "6", "",
+        "", "", "3", "", "", "9", "", "1", "4",
+        "", "5", "", "6", "4", "3", "8", "", "",
+        "", "", "9", "4", "7", "8", "2", "", "6",
+        "3", "", "", "", "9", "2", "4", "7", "",
+        "4", "", "2", "3", "", "5", "9", "1", ""
     ]
-
-
 
     print_board(convert_to_2d(input_board))
 
-
     print(convert_to_1d(convert_to_2d(input_board)))
-
-
-

@@ -1,5 +1,5 @@
-import time
 import copy
+import time
 
 from utils import convert_to_2d, print_board, convert_to_1d
 
@@ -42,7 +42,6 @@ class DeepFirstSearch:
                         return False
         return True
 
-
     def solve(self):
         start_timestamp = time.time()
         self.count_of_steps = 0
@@ -50,7 +49,6 @@ class DeepFirstSearch:
 
         end_timestamp = time.time()
         self.duration = end_timestamp - start_timestamp
-
 
         self.convert_states()
 
@@ -60,8 +58,6 @@ class DeepFirstSearch:
 
         for state in self.states:
             self.converted_states.append(convert_to_1d(state))
-
-
 
     def dfs(self, node):
         print(self.count_of_steps)
@@ -77,16 +73,17 @@ class DeepFirstSearch:
         children = []
         valid_values = {
             "list_values": [],
-            "row" : 0,
-            "col" : 0
+            "row": 0,
+            "col": 0
         }
 
         should_break = False
         for row in range(len(node.state)):
             for col in range(len(node.state)):
                 if node.state[row][col] == 0:
-                    valid_values["list_values"] = list(range(1, len(self.input) + 1)) # self.list_valid(node.state, row, col)
-                    print("valid_values" , valid_values["list_values"])
+                    valid_values["list_values"] = list(
+                        range(1, len(self.input) + 1))  # self.list_valid(node.state, row, col)
+                    print("valid_values", valid_values["list_values"])
                     valid_values["row"] = row
                     valid_values["col"] = col
                     should_break = True
@@ -128,7 +125,7 @@ class DeepFirstSearch:
 
     def is_sudoku_solved(slef, board):
         n = len(board)
-        box_size =  3 if len(board) == 9 else 2
+        box_size = 3 if len(board) == 9 else 2
 
         def is_valid_group(group):
             return sorted(group) == list(range(1, n + 1))
@@ -162,10 +159,12 @@ class Node:
 
 
 if __name__ == "__main__":
-    sudoku_board =  ['', '5', '3', '', '9', '2', '8', '', '7', '', '', '', '', '3', '6', '9', '', '', '', '9', '', '', '', '', '', '', '', '', '2', '4', '', '', '1', '3', '6', '', '', '', '3', '', '', '9', '', '1', '4', '', '5', '', '6', '4', '3', '8', '', '', '', '', '9', '4', '7', '8', '2', '', '6', '3', '', '', '', '9', '2', '4', '7', '', '4', '', '2', '3', '', '5', '9', '1', '']
+    sudoku_board = ['', '5', '3', '', '9', '2', '8', '', '7', '', '', '', '', '3', '6', '9', '', '', '', '9', '', '',
+                    '', '', '', '', '', '', '2', '4', '', '', '1', '3', '6', '', '', '', '3', '', '', '9', '', '1', '4',
+                    '', '5', '', '6', '4', '3', '8', '', '', '', '', '9', '4', '7', '8', '2', '', '6', '3', '', '', '',
+                    '9', '2', '4', '7', '', '4', '', '2', '3', '', '5', '9', '1', '']
 
     sudoku_board = convert_to_2d(sudoku_board)
-
 
     algo = DeepFirstSearch(sudoku_board)
 
@@ -177,4 +176,3 @@ if __name__ == "__main__":
     print(f"\nCount of steps: {algo.count_of_steps}, {algo.is_solved}, {algo.duration}")
 
     # print(f'Size {sys.getsizeof(algo.states)}')
-

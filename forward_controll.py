@@ -1,7 +1,7 @@
-import time
 import copy
+import time
 
-from utils import convert_to_2d, print_board, convert_to_1d
+from utils import convert_to_2d, convert_to_1d
 
 
 class ForwardControl:
@@ -42,7 +42,6 @@ class ForwardControl:
                         return False
         return True
 
-
     def solve(self):
         start_timestamp = time.time()
         self.count_of_steps = 0
@@ -50,7 +49,6 @@ class ForwardControl:
 
         end_timestamp = time.time()
         self.duration = end_timestamp - start_timestamp
-
 
         self.convert_states()
 
@@ -60,8 +58,6 @@ class ForwardControl:
 
         for state in self.states:
             self.converted_states.append(convert_to_1d(state))
-
-
 
     def forward_control(self, node):
 
@@ -76,8 +72,8 @@ class ForwardControl:
         children = []
         valid_values = {
             "list_values": [],
-            "row" : 0,
-            "col" : 0
+            "row": 0,
+            "col": 0
         }
 
         should_break = False
@@ -124,6 +120,7 @@ class ForwardControl:
                     return False
         return True
 
+
 class Node:
     def __init__(self, state, parent, children):
         self.state = state
@@ -132,7 +129,10 @@ class Node:
 
 
 if __name__ == "__main__":
-    sudoku_board =  ['', '5', '3', '', '9', '2', '8', '', '7', '', '', '', '', '3', '6', '9', '', '', '', '9', '', '', '', '', '', '', '', '', '2', '4', '', '', '1', '3', '6', '', '', '', '3', '', '', '9', '', '1', '4', '', '5', '', '6', '4', '3', '8', '', '', '', '', '9', '4', '7', '8', '2', '', '6', '3', '', '', '', '9', '2', '4', '7', '', '4', '', '2', '3', '', '5', '9', '1', '']
+    sudoku_board = ['', '5', '3', '', '9', '2', '8', '', '7', '', '', '', '', '3', '6', '9', '', '', '', '9', '', '',
+                    '', '', '', '', '', '', '2', '4', '', '', '1', '3', '6', '', '', '', '3', '', '', '9', '', '1', '4',
+                    '', '5', '', '6', '4', '3', '8', '', '', '', '', '9', '4', '7', '8', '2', '', '6', '3', '', '', '',
+                    '9', '2', '4', '7', '', '4', '', '2', '3', '', '5', '9', '1', '']
 
     sudoku_board = convert_to_2d(sudoku_board)
 
@@ -140,11 +140,9 @@ if __name__ == "__main__":
 
     algo.solve()
 
-
     print(f"\nCount of steps: {algo.count_of_steps}, {algo.is_solved}, {algo.duration}")
 
     # for i in algo.states:
     #     print_board(i)
 
     # print(f'Size {sys.getsizeof(algo.states)}')
-
