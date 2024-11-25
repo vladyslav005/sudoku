@@ -60,7 +60,7 @@ class ForwardControl:
             self.converted_states.append(convert_to_1d(state))
 
     def forward_control(self, node):
-
+        print(self.count_of_steps)
         if self.is_solved:
             return
 
