@@ -50,4 +50,29 @@ input[type="number"] {
   padding: 10px;
 }
 
+#loading {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.27);
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*display: flex;*/
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-bx {
+  background-color: white;
+  height: 150px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+}
+
+
 
